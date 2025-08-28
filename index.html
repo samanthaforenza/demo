@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Stock Prediction Game</title>
+    <link rel="stylesheet" href="./styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.3/dist/chart.umd.min.js" defer></script>
+    <script src="./app.js" defer></script>
+  </head>
+  <body>
+    <div class="container">
+      <header>
+        <h1>Stock Market Prediction Game</h1>
+        <p class="subtitle">Guess if tomorrow's price goes up or down.</p>
+      </header>
+
+      <section class="controls">
+        <label for="tickerInput" class="label">Enter stock ticker</label>
+        <div class="ticker-row">
+          <input id="tickerInput" type="text" placeholder="e.g., MSFT, AAPL, COF" autocomplete="off" spellcheck="false" />
+          <button id="startBtn">Start Game</button>
+        </div>
+        <p id="errorMsg" class="error" role="alert" aria-live="polite"></p>
+        <p id="infoMsg" class="info" aria-live="polite"></p>
+      </section>
+
+      <section class="status">
+        <div class="status-item">
+          <span class="status-label">Current ticker:</span>
+          <span id="currentTicker">—</span>
+        </div>
+        <div class="status-item">
+          <span class="status-label">Current date:</span>
+          <span id="currentDate">—</span>
+        </div>
+        <div class="status-item">
+          <span class="status-label">Current price:</span>
+          <span id="currentPrice">—</span>
+        </div>
+        <div class="status-item score">
+          <span class="status-label">Score:</span>
+          <span id="score">0</span>
+        </div>
+      </section>
+
+      <section class="chart-wrap">
+        <canvas id="priceChart" height="260"></canvas>
+      </section>
+
+      <section class="game-actions">
+        <button id="upBtn" class="predict" disabled>Price will go Up</button>
+        <button id="downBtn" class="predict" disabled>Price will go Down</button>
+        <button id="endBtn" class="secondary" disabled>End Game</button>
+      </section>
+
+      <section class="feedback">
+        <p id="roundResult" aria-live="polite"></p>
+      </section>
+
+      <footer>
+        <small>
+          Data from <a href="https://www.alphavantage.co/" target="_blank" rel="noreferrer noopener">Alpha Vantage</a>. This app uses real market data.
+        </small>
+      </footer>
+    </div>
+  </body>
+  </html>
+
